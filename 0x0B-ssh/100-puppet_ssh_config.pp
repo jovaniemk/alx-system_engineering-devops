@@ -1,9 +1,14 @@
-# Automating previous tasks with puppet
-file { ~/.ssh/config:
-  ensure => present,
-  content => 'User ubuntu',
-}
-file { ~/.ssh/config:
-  ensure => present,
-  content => 'IdentityFile ~/.ssh/school',
+#!/usr/bin/env bash
+# using puppet to make changes to our configuration file
+
+file { 'ect/ssh/ssh_cofig':
+ensure=> present,
+
+content =>"
+
+#SSH client configuration
+#host*
+IdentityFile ~/.ssh/school
+passwordAuthentication no
+
 }
